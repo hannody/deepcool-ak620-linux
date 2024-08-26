@@ -1,0 +1,15 @@
+# /etc/systemd/system/deepcool-ak620.service
+[Unit]
+Description=DeepCool AK620 Temperature Display written in Node.js, By Mohanad Abu-Nayla (github.com/hannody)
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/node /home/<USER_NAME>/Documents/development/nodejs/deepcool-ak620-nodejs/main.js
+Restart=on-failure
+WorkingDirectory=/home/<USER_NAME>/Documents/development/nodejs/deepcool-ak620-nodejs
+StandardOutput=file:/var/log/deepcool_ak620.log
+StandardError=file:/var/log/deepcool_ak620.log
+
+[Install]
+WantedBy=default.target
